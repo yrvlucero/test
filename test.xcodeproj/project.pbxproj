@@ -15,6 +15,11 @@
 		76DC30AE203FB40F0087046D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76DC30AC203FB40F0087046D /* LaunchScreen.storyboard */; };
 		76DC30B9203FB4100087046D /* testTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DC30B8203FB4100087046D /* testTests.swift */; };
 		76DC30C4203FB4100087046D /* testUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DC30C3203FB4100087046D /* testUITests.swift */; };
+		76DC30D2203FBA280087046D /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DC30D1203FBA280087046D /* Api.swift */; };
+		76DC30D4203FBAEA0087046D /* Callback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DC30D3203FBAEA0087046D /* Callback.swift */; };
+		76DC30D6203FBB260087046D /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DC30D5203FBB260087046D /* NetworkError.swift */; };
+		76DC30D8203FBCCE0087046D /* Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DC30D7203FBCCE0087046D /* Row.swift */; };
+		76DC30DB203FC2380087046D /* ModelObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DC30DA203FC2380087046D /* ModelObject.swift */; };
 		843C3EB42BCD8C779DF5A0B2 /* Pods_testUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4A44F6275F106E8C860FA67 /* Pods_testUITests.framework */; };
 		98B8ECA96271C2F075A43924 /* Pods_testTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F1E99545DBD7B2914B61AE3 /* Pods_testTests.framework */; };
 /* End PBXBuildFile section */
@@ -53,6 +58,11 @@
 		76DC30BF203FB4100087046D /* testUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = testUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		76DC30C3203FB4100087046D /* testUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testUITests.swift; sourceTree = "<group>"; };
 		76DC30C5203FB4100087046D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		76DC30D1203FBA280087046D /* Api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
+		76DC30D3203FBAEA0087046D /* Callback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Callback.swift; sourceTree = "<group>"; };
+		76DC30D5203FBB260087046D /* NetworkError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		76DC30D7203FBCCE0087046D /* Row.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Row.swift; sourceTree = "<group>"; };
+		76DC30DA203FC2380087046D /* ModelObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelObject.swift; sourceTree = "<group>"; };
 		9AF3722C5A484090DB35CFA8 /* Pods-testUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-testUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-testUITests/Pods-testUITests.release.xcconfig"; sourceTree = "<group>"; };
 		A0C46A97718C8C401E5392C7 /* Pods-testUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-testUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-testUITests/Pods-testUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A8976D9CDD883EE5CDD5EFB4 /* Pods-test.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-test.debug.xcconfig"; path = "Pods/Target Support Files/Pods-test/Pods-test.debug.xcconfig"; sourceTree = "<group>"; };
@@ -137,12 +147,17 @@
 		76DC30A2203FB40F0087046D /* test */ = {
 			isa = PBXGroup;
 			children = (
+				76DC30D1203FBA280087046D /* Api.swift */,
+				76DC30D3203FBAEA0087046D /* Callback.swift */,
+				76DC30D5203FBB260087046D /* NetworkError.swift */,
 				76DC30A3203FB40F0087046D /* AppDelegate.swift */,
 				76DC30A5203FB40F0087046D /* ViewController.swift */,
 				76DC30A7203FB40F0087046D /* Main.storyboard */,
 				76DC30AA203FB40F0087046D /* Assets.xcassets */,
 				76DC30AC203FB40F0087046D /* LaunchScreen.storyboard */,
 				76DC30AF203FB40F0087046D /* Info.plist */,
+				76DC30D7203FBCCE0087046D /* Row.swift */,
+				76DC30DA203FC2380087046D /* ModelObject.swift */,
 			);
 			path = test;
 			sourceTree = "<group>";
@@ -390,9 +405,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-test/Pods-test-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -454,7 +472,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76DC30D2203FBA280087046D /* Api.swift in Sources */,
 				76DC30A6203FB40F0087046D /* ViewController.swift in Sources */,
+				76DC30DB203FC2380087046D /* ModelObject.swift in Sources */,
+				76DC30D6203FBB260087046D /* NetworkError.swift in Sources */,
+				76DC30D4203FBAEA0087046D /* Callback.swift in Sources */,
+				76DC30D8203FBCCE0087046D /* Row.swift in Sources */,
 				76DC30A4203FB40F0087046D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -623,6 +646,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5SVL6S654Z;
 				INFOPLIST_FILE = test/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = test.test;
@@ -638,6 +662,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5SVL6S654Z;
 				INFOPLIST_FILE = test/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = test.test;

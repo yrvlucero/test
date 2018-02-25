@@ -6,7 +6,8 @@ target 'test' do
   use_frameworks!
 
   # Pods for test
-
+  pod 'Alamofire'
+  
   target 'testTests' do
     inherit! :search_paths
     # Pods for testing
