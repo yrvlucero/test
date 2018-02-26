@@ -52,4 +52,8 @@ class CustomTableViewCell: UITableViewCell {
         pictureView.setContentHuggingPriority(.required, for: .horizontal)
         pictureView.setContentCompressionResistancePriority(.required, for: .horizontal)
     }
+    
+    override func prepareForReuse() {
+        pictureView.image = nil
+    }
 }

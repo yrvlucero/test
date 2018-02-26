@@ -11,6 +11,8 @@ import SDWebImage
 class ViewController: UIViewController,  UITableViewDelegate, UITableViewDataSource {
     var tableView = UITableView()
     var object: ModelObject?
+    let refreshControl = UIRefreshControl()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView = UITableView()
@@ -26,6 +28,13 @@ class ViewController: UIViewController,  UITableViewDelegate, UITableViewDataSou
         tableView.contentInset.top = 30
         tableView.estimatedRowHeight = 300
         tableView.rowHeight = UITableViewAutomaticDimension
+        
+        if #available(iOS 10.0, *) {
+            tableView.refreshControl = refreshControl
+        } else {
+            tableView.addSubview(refreshControl)
+        }
+        refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
         
         tableView.register(CustomTableViewCell.self, forCellReuseIdentifier: "my")
         Api().getData().success { (object) in
@@ -74,6 +83,17 @@ class ViewController: UIViewController,  UITableViewDelegate, UITableViewDataSou
             cell.pictureView.sd_setImage(with: url, completed: nil)
         }
         return cell
+    }
+    
+    @objc func refreshData() {
+        Api().getData().success { (object) in
+            self.object = object
+            self.setNavBarToTheView(title: object.title)
+            self.tableView.reloadData()
+            self.refreshControl.endRefreshing()
+            }.failure { (err) in
+                print("ERROR", err.localizedDescription)
+        }
     }
 }
 
