@@ -7,6 +7,7 @@ target 'test' do
 
   # Pods for test
   pod 'Alamofire'
+  pod 'SDWebImage'
   
   target 'testTests' do
     inherit! :search_paths

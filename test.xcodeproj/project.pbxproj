@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		04D979A17BB5174195C186A2 /* Pods_test.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B2053EE99AB3D3F57EA68DF /* Pods_test.framework */; };
+		763A9F6C20438DD100683B38 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763A9F6B20438DD100683B38 /* CustomTableViewCell.swift */; };
 		76DC30A4203FB40F0087046D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DC30A3203FB40F0087046D /* AppDelegate.swift */; };
 		76DC30A6203FB40F0087046D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DC30A5203FB40F0087046D /* ViewController.swift */; };
 		76DC30A9203FB40F0087046D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76DC30A7203FB40F0087046D /* Main.storyboard */; };
@@ -45,6 +46,7 @@
 		0295FA98425B09B1E7726EE3 /* Pods-testTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-testTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-testTests/Pods-testTests.debug.xcconfig"; sourceTree = "<group>"; };
 		0B2053EE99AB3D3F57EA68DF /* Pods_test.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_test.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F1E99545DBD7B2914B61AE3 /* Pods_testTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_testTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		763A9F6B20438DD100683B38 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		76DC30A0203FB40F0087046D /* test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76DC30A3203FB40F0087046D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76DC30A5203FB40F0087046D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -147,7 +149,6 @@
 		76DC30A2203FB40F0087046D /* test */ = {
 			isa = PBXGroup;
 			children = (
-				76DC30D1203FBA280087046D /* Api.swift */,
 				76DC30D3203FBAEA0087046D /* Callback.swift */,
 				76DC30D5203FBB260087046D /* NetworkError.swift */,
 				76DC30A3203FB40F0087046D /* AppDelegate.swift */,
@@ -156,8 +157,10 @@
 				76DC30AA203FB40F0087046D /* Assets.xcassets */,
 				76DC30AC203FB40F0087046D /* LaunchScreen.storyboard */,
 				76DC30AF203FB40F0087046D /* Info.plist */,
+				76DC30D1203FBA280087046D /* Api.swift */,
 				76DC30D7203FBCCE0087046D /* Row.swift */,
 				76DC30DA203FC2380087046D /* ModelObject.swift */,
+				763A9F6B20438DD100683B38 /* CustomTableViewCell.swift */,
 			);
 			path = test;
 			sourceTree = "<group>";
@@ -407,10 +410,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-test/Pods-test-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -474,6 +479,7 @@
 			files = (
 				76DC30D2203FBA280087046D /* Api.swift in Sources */,
 				76DC30A6203FB40F0087046D /* ViewController.swift in Sources */,
+				763A9F6C20438DD100683B38 /* CustomTableViewCell.swift in Sources */,
 				76DC30DB203FC2380087046D /* ModelObject.swift in Sources */,
 				76DC30D6203FBB260087046D /* NetworkError.swift in Sources */,
 				76DC30D4203FBAEA0087046D /* Callback.swift in Sources */,
