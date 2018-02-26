@@ -24,7 +24,7 @@ class ViewController: UIViewController,  UITableViewDelegate, UITableViewDataSou
         tableView.delegate = self
         tableView.backgroundColor = UIColor.white
         tableView.contentInset.top = 30
-        tableView.estimatedRowHeight = 150
+        tableView.estimatedRowHeight = 300
         tableView.rowHeight = UITableViewAutomaticDimension
         
         tableView.register(CustomTableViewCell.self, forCellReuseIdentifier: "my")
@@ -63,8 +63,6 @@ class ViewController: UIViewController,  UITableViewDelegate, UITableViewDataSou
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return object?.rows.count ?? 0
     }
-
-
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "my", for: indexPath) as! CustomTableViewCell
@@ -72,7 +70,6 @@ class ViewController: UIViewController,  UITableViewDelegate, UITableViewDataSou
         cell.awakeFromNib()
         cell.titleText.text = row?.title ?? ""
         cell.descriptionText.text = row?.description
-        print(cell.descriptionText.numberOfLines)
         if let url = URL(string: row?.imageHref ?? "") {
             cell.pictureView.sd_setImage(with: url, completed: nil)
         }
