@@ -14,7 +14,7 @@ public class Callback<T> {
     }
   }
   
-  public func success(callback: @escaping (T) -> Void) -> Callback<T> {
+  @discardableResult public func success(callback: @escaping (T) -> Void) -> Callback<T> {
     successCallback = callback
     return self
   }
@@ -25,7 +25,7 @@ public class Callback<T> {
     }
   }
   
-  public func failure(callback: @escaping (Swift.Error) -> Void) -> Callback<T> {
+@discardableResult public func failure(callback: @escaping (Swift.Error) -> Void) -> Callback<T> {
     failureCallback = callback
     return self;
   }
